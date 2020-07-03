@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bank Locationer</title>{% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+</head>
+
+<body>
+  <!-- contact-form 2 -->
+  <section class="w3l-contact-2">
+    <div class="contact-infubd section-gap">
+      <div class="wrapper">
+        <div class="contact-grids d-grid">
+          <div class="contact-left">
+            <h3>Finder !</h3>
+            <span class="fa fa-envelope-open-o" aria-hidden="true"></span>
+            <h4>BANK Details Here !</h4>
+<!--            v-->
+<!--            <h6>For more info or inquiry about our products project, and pricing please feel free to get in touch with-->
+<!--              us.</h6>-->
+          <ul>
+          {% for key, value in context.items %}
+            <li>{{key}} - {{value}}</li>
+          {% endfor %}
+          </ul>
+          </div>
+          <div class="contact-right">
+            <form method="POST" class="signin-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="input-grids">
+                <input type="text" name="ifscinput" id="w3lName" placeholder="IFSC*" class="contact-input" />
+                <br>
+                <label>OR </label><br><br>
+                <input type="text" name="ifscinput" id="w3lName1" placeholder="BANK NAME*" class="contact-input" />
+                <input type="text" name="city" id="w3lSubect" placeholder="CITY" class="contact-input" />
+              </div>
+              <input type="submit" value="SUBMIT" class="btn submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+  </section>
+  <!-- /contact-form-2 -->
+</body>
+
+</html>
